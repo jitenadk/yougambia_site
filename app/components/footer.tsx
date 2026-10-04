@@ -1,0 +1,8 @@
+import Link from 'next/link';
+import { ArrowUpRight, Heart, MapPin } from 'lucide-react';
+import { Brand, SocialLinks } from './ui';
+import { projects } from '../content';
+
+export default function Footer() {
+  return <><footer className="site-footer"><div className="wrap footer-grid"><div className="footer-brand"><Brand/><p>Rooted in faith. United in care.<br/>For our community in The Gambia.</p><span className="location"><MapPin size={15}/> The Gambia, West Africa</span><SocialLinks/></div><div><h2>Our work</h2>{projects.map(project => <Link key={project.slug} href={`/projects/${project.slug}`}>{project.title}</Link>)}</div><div><h2>Be part of it</h2><Link href="/donate">Make a donation</Link><Link href="/giving">Ways to give</Link><Link href="/giving#zakat">Zakat enquiries</Link><Link href="/get-involved">Volunteer & collaborate</Link><Link href="/get-involved#fundraise">Fundraise with us</Link><Link href="/updates">Follow our journey</Link></div><div><h2>Here to help</h2><Link href="/about">About You Gambia</Link><Link href="/contact">Contact the team</Link><Link href="/help">Help & FAQs</Link><Link href="/giving#policy">Donation policy</Link><Link href="/privacy">Your privacy</Link><Link href="/search">Search the website</Link></div></div><div className="wrap footer-bottom"><span>© {new Date().getFullYear()} You Gambia. Charity. Unity. Barakah.</span><a href="https://commons.wikimedia.org/wiki/File:River_Gambia.jpg" target="_blank" rel="noopener noreferrer">River photo: Gayobah13 · CC0 <ArrowUpRight size={12}/></a><Link href="#top">Back to top ↑</Link></div></footer><div className="mobile-giving"><span>A little kindness goes a long way.</span><Link href="/donate" className="button button-blue">Donate <Heart size={15}/></Link></div></>;
+}
